@@ -13,11 +13,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: test
-      id: test
+    - name: test1
+      id: test1
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: test
+        test-name: test1
         setup-command: ''
         command: javac LinkedList.java && java LinkedList
         input: |-
@@ -45,6 +45,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST_RESULTS: "${{steps.test.outputs.result}}"
+        TEST1_RESULTS: "${{steps.test1.outputs.result}}"
       with:
-        runners: test
+        runners: test1
